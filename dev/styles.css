@@ -130,6 +130,46 @@ header.shrunk {
     width: auto !important;
     height: 100% !important;
 }
+/* MAIN CÓMO-LLEGAR */
+#mapa {
+    text-align: center;
+    width: 100%;
+    padding-block: 25vh;
+}
+#mapa h1 {
+    font-size: 3em;
+    font-weight: 800;
+    color: rgba(62,72,152,1);
+    margin-bottom: 50px;
+}
+#mapa p {
+    font-size: 2em;
+    margin-bottom: 50px;
+}
+/* CARTA */
+#carta {
+    text-align: center;
+    width: 100%;
+    padding-block: 25vh;
+    padding-inline: 10vw;
+}
+#carta h1 {
+    font-size: 3em;
+    font-weight: 800;
+    color: rgba(62,72,152,1);
+    margin-bottom: 50px;
+}
+#carta p {
+    font-size: 2em;
+    margin-bottom: 50px;
+}
+#carta img {
+    width: 100%;
+    height: auto;
+}
+#carta img:nth-of-type(1) {
+    margin-bottom: 50px;
+}
 /* ANIMACIONES */
 .initial-fade-in {
     opacity: 0; /* El contenido está invisible al principio */
