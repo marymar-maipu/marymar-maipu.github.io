@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let ruta = window.location.pathname.toLowerCase();
 
     // Verifica si la ruta es exactamente "/dev/index.html"
-    if (ruta === "/dev/index.html") {
+    if (ruta === "/dev/index.html" || ruta === "/dev/") {
         cargarImagenes();
     }
 });
@@ -35,7 +35,7 @@ function cargarImagenes() {
             grupoDiv.classList.add("grupo");
 
             grupos[num].forEach(img => {
-                let imagen = crearImagen(`/dev/img/carta/${img}`);
+                let imagen = crearImagenGrupal(`/dev/img/carta/${img}`);
                 grupoDiv.appendChild(imagen);
             });
 
@@ -48,7 +48,15 @@ function cargarImagenes() {
 
     activarLazyLoading();
 }
-
+function crearImagenGrupal(src) {
+    let div = document.createElement("div");
+    let img = document.createElement("img");
+    img.dataset.src = src;
+    img.alt = "Carta";
+    img.classList.add("grouped-image-lazy");
+    div.appendChild(img);
+    return div;
+}
 function crearImagen(src) {
     let img = document.createElement("img");
     img.dataset.src = src; // Se carga solo cuando aparece en pantalla
@@ -69,6 +77,6 @@ function activarLazyLoading() {
             }
         });
     }, { rootMargin: "100px" }); // Precarga antes de que aparezca
-
+    document.querySelectorAll("img.grouped-image-lazy").forEach(img => observer.observe(img));
     document.querySelectorAll("img.lazy").forEach(img => observer.observe(img));
 }

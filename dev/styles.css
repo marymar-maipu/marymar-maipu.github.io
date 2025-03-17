@@ -89,13 +89,14 @@ header.shrunk {
 #carta {
     width: 100%;
     padding-top: 15vh;
+    padding-inline: 12.5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 50px;
 }
 .lazy {
-    width: 75%;
+    width: 100%;
     height: auto;
     display: block;
     opacity: 0;
@@ -105,9 +106,20 @@ header.shrunk {
     opacity: 1;
 }
 .grupo {
-    max-width: 100%;
+    align-items: center;
+    justify-content: space-between;
     display: flex;
+    gap: 10px;
+    width: 100%;
+    height: auto;
 }
-.grupo .lazy{
-    
+.grupo div {
+    height: 100%;
+    width: auto;
+}
+.grupo div img {
+    width: 100%;
+}
+.grouped-image-lazy.loeaded {
+    opacity: 1;
 }
