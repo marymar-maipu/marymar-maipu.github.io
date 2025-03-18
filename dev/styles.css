@@ -53,7 +53,9 @@ body {
 /* HEADER */
 header {
     position: fixed;
-    background-color: rgba(62,72,152,1);
+    background-image: url("/dev/img/background.png");
+    background-size: 100% auto;
+    background-position: 0 -20px;
     height: 15%;
     width: 100%;
     display: flex;
@@ -62,7 +64,7 @@ header {
     padding-inline-start: 5vw;
     padding-inline-end: 10vw;
     z-index: 1020;
-    transition: height .2s ease, background-color .2s ease;
+    transition: height .2s ease, background-color .2s ease, background-position .2s ease, box-shadow .2s ease;
 }
 header a {
     width: auto;
@@ -83,14 +85,15 @@ header nav ul li a {
     font-weight: 600;
     font-size: 1.4em;
     text-decoration: none;
+    text-shadow: 2px 2px 4px #000000;
 }
 header nav ul li a:hover {
     color: #F27506;
 }
 header.shrunk {
     height: 10%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: rgba(62,72,152,1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    background-position: 0 -45px;
 }
 /* MAIN INDEX */
 #catalogo {
@@ -111,6 +114,41 @@ header.shrunk {
     width: 100%;
     height: auto;
     display: block;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+/* Estilos del fondo en pantalla completa */
+.fullscreen-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1030;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+/* Imagen en pantalla completa */
+.fullscreen-container img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 5px;
+}
+/* Botón de cerrar */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 50px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 .grupo {
     width: 100%;
@@ -183,7 +221,7 @@ header.shrunk {
 .fade-in {
     transform: translateY(20px);
     opacity: 0; /* El contenido está invisible al principio */
-    transition: opacity .3s ease-out, transform .3s ease-out;;
+    transition: opacity .4s ease-out, transform .4s ease-out;;
 }
 .fade-in.visible {
     opacity: 1; /* El contenido se hace visible */
